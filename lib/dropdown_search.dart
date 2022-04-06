@@ -492,15 +492,12 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
             color: Theme.of(context).primaryColorLight),
         child: Text(
           _selectedItemAsString(item),
-          maxLines: maxLines,
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.subtitle2,
         ),
       );
     }
 
-    Widget selectedItemWidget() {
+    Widget selectedItemWidget(int maxLines) {
       if (widget.dropdownBuilder != null) {
         return widget.dropdownBuilder!(
           context,
@@ -527,7 +524,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Expanded(child: selectedItemWidget()),
+        Expanded(child: selectedItemWidget(maxLines)),
         if (!widget.showAsSuffixIcons) _manageTrailingIcons(),
       ],
     );
