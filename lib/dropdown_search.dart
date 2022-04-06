@@ -482,7 +482,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
     return nullableList.whereType<T>().toList();
   }
 
-  Widget _defaultSelectedItemWidget() {
+  Widget _defaultSelectedItemWidget(maxLines) {
     Widget defaultItemMultiSelectionMode(T item) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
@@ -497,7 +497,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
       );
     }
 
-    Widget selectedItemWidget(int maxLines) {
+    Widget selectedItemWidget(maxLines) {
       if (widget.dropdownBuilder != null) {
         return widget.dropdownBuilder!(
           context,
@@ -561,7 +561,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
                         widget.dropdownBuilderSupportsNullItem),
                 isFocused: isFocused,
                 decoration: _manageDropdownDecoration(state),
-                child: _defaultSelectedItemWidget(),
+                child: _defaultSelectedItemWidget(maxLines),
               );
             });
       },
@@ -593,7 +593,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
                         widget.dropdownBuilderSupportsNullItem),
                 isFocused: isFocused,
                 decoration: _manageDropdownDecoration(state),
-                child: _defaultSelectedItemWidget(),
+                child: _defaultSelectedItemWidget(maxLines),
               );
             });
       },
