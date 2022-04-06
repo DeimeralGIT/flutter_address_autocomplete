@@ -497,7 +497,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
       );
     }
 
-    Widget selectedItemWidget(maxLines) {
+    Widget selectedItemWidget(this.maxLines) {
       if (widget.dropdownBuilder != null) {
         return widget.dropdownBuilder!(
           context,
