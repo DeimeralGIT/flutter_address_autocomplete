@@ -441,6 +441,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final _popupStateKey = GlobalKey<SelectionWidgetState<T>>();
   final maxLines;
   final selectedItemTextStyle;
+  final selectedItemTextPadding;
 
   DropdownSearchState(this.maxLines, this.selectedItemTextStyle, this.selectedItemTextPadding);
 
