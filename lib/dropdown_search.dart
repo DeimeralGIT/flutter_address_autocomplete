@@ -436,7 +436,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final ValueNotifier<bool> _isFocused = ValueNotifier(false);
   final _popupStateKey = GlobalKey<SelectionWidgetState<T>>();
   final maxLines;
-  final selectedItemTextStyle?;
+  final selectedItemTextStyle;
 
   DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
 
