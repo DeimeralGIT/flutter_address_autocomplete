@@ -438,7 +438,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final maxLines;
 //   final selectedItemTextStyle;
 
-  DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
+  DropdownSearchState(this.maxLines);
 
   @override
   void initState() {
