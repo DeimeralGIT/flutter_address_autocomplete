@@ -266,7 +266,7 @@ class DropdownSearch<T> extends StatefulWidget {
   int maxLines;
   
   /// text style of selected item
-  TextStyle selectedItemTextStyle;
+  TextStyle? selectedItemTextStyle;
 
   DropdownSearch({
     Key? key,
@@ -328,7 +328,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle = const TextStyle(),
+    this.selectedItemTextStyle,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.isMultiSelectionMode = false,
@@ -410,7 +410,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle = const TextStyle(),
+    this.selectedItemTextStyle,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.onChangedMultiSelection = onChanged,
