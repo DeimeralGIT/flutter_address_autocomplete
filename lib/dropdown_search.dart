@@ -267,6 +267,8 @@ class DropdownSearch<T> extends StatefulWidget {
   
   /// text style of selected item
   TextStyle? selectedItemTextStyle;
+  
+  EdgeInsets? selectedItemTextPadding;
 
   DropdownSearch({
     Key? key,
@@ -329,6 +331,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.positionCallback,
     this.maxLines = 1,
     this.selectedItemTextStyle,
+    this.selectedItemTextPadding,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.isMultiSelectionMode = false,
@@ -411,6 +414,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.positionCallback,
     this.maxLines = 1,
     this.selectedItemTextStyle,
+    this.selectedItemTextPadding,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.onChangedMultiSelection = onChanged,
@@ -428,7 +432,7 @@ class DropdownSearch<T> extends StatefulWidget {
         super(key: key);
 
   @override
-  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines, selectedItemTextStyle);
+  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines, selectedItemTextStyle, selectedItemTextPadding);
 }
 
 class DropdownSearchState<T> extends State<DropdownSearch<T>> {
@@ -438,7 +442,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final maxLines;
   final selectedItemTextStyle;
 
-  DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
+  DropdownSearchState(this.maxLines, this.selectedItemTextStyle, this.selectedItemTextPadding);
 
   @override
   void initState() {
@@ -508,11 +512,14 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
           children: getSelectedItems.map((e) => defaultItemMultiSelectionMode(e)).toList(),
         );
       }
-      return Text(
+      return Padding(
+        child: Text(
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
         style: selectedItemTextStyle??Theme.of(context).textTheme.subtitle1,
+          ),
+        padding: selectedItemTextPadding??EdgeInsets.zero,
       );
     }
 
