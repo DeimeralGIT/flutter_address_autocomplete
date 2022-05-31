@@ -265,8 +265,8 @@ class DropdownSearch<T> extends StatefulWidget {
   /// applies maxlines to selected item
   int maxLines;
   
-  /// text style of selected item
-  TextStyle? selectedItemTextStyle;
+//   /// text style of selected item
+//   TextStyle? selectedItemTextStyle;
 
   DropdownSearch({
     Key? key,
@@ -328,7 +328,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle,
+//     this.selectedItemTextStyle,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.isMultiSelectionMode = false,
@@ -410,7 +410,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle,
+//     this.selectedItemTextStyle,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.onChangedMultiSelection = onChanged,
@@ -428,7 +428,7 @@ class DropdownSearch<T> extends StatefulWidget {
         super(key: key);
 
   @override
-  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines, selectedItemTextStyle);
+  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines);
 }
 
 class DropdownSearchState<T> extends State<DropdownSearch<T>> {
@@ -436,7 +436,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final ValueNotifier<bool> _isFocused = ValueNotifier(false);
   final _popupStateKey = GlobalKey<SelectionWidgetState<T>>();
   final maxLines;
-  final selectedItemTextStyle;
+//   final selectedItemTextStyle;
 
   DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
 
@@ -512,7 +512,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: selectedItemTextStyle??Theme.of(state.context).primaryTextTheme.subtitle1,
+        style: TextStyle(color: Colors.black, fontSize: 16),
       );
     }
 
