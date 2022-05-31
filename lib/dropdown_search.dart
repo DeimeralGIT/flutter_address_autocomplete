@@ -438,7 +438,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final maxLines;
   final selectedItemTextStyle;
 
-  DropdownSearchState(this.maxLines);
+  DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
 
   @override
   void initState() {
@@ -512,7 +512,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: selectedItemTextStyle??Theme.of(state.context).primaryTextTheme.subtitle1,
+        style: selectedItemTextStyle??Theme.of(context).textTheme.subtitle1,
       );
     }
 
