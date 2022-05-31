@@ -410,7 +410,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle = Theme.of(state.context).primaryTextTheme.subtitle1,
+    this.selectedItemTextStyle,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.onChangedMultiSelection = onChanged,
@@ -436,7 +436,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final ValueNotifier<bool> _isFocused = ValueNotifier(false);
   final _popupStateKey = GlobalKey<SelectionWidgetState<T>>();
   final maxLines;
-  final selectedItemTextStyle;
+  final selectedItemTextStyle?;
 
   DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
 
@@ -512,7 +512,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: selectedItemTextStyle,
+        style: selectedItemTextStyle??Theme.of(state.context).primaryTextTheme.subtitle1,
       );
     }
 
