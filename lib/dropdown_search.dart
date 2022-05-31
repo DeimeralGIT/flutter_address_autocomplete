@@ -264,6 +264,9 @@ class DropdownSearch<T> extends StatefulWidget {
 
   /// applies maxlines to selected item
   int maxLines;
+  
+  /// text style of selected item
+  TextStyle selectedItemTextStyle;
 
   DropdownSearch({
     Key? key,
@@ -325,6 +328,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
+    this.selectedItemTextStyle = TextStyle(),
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.isMultiSelectionMode = false,
@@ -406,6 +410,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
+    this.selectedItemTextStyle = TextStyle(),
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
         this.onChangedMultiSelection = onChanged,
@@ -423,7 +428,7 @@ class DropdownSearch<T> extends StatefulWidget {
         super(key: key);
 
   @override
-  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines);
+  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines, selectedItemTextStyle);
 }
 
 class DropdownSearchState<T> extends State<DropdownSearch<T>> {
@@ -431,8 +436,9 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final ValueNotifier<bool> _isFocused = ValueNotifier(false);
   final _popupStateKey = GlobalKey<SelectionWidgetState<T>>();
   final maxLines;
+  final selectedItemTextStyle;
 
-  DropdownSearchState(this.maxLines);
+  DropdownSearchState(this.maxLines, this.selectedItemTextStyle);
 
   @override
   void initState() {
@@ -506,7 +512,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: Theme.of(context).textTheme.subtitle1,
+        style: selectedItemTextStyle,
       );
     }
 
