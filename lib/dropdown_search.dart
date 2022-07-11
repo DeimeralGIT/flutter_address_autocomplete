@@ -432,7 +432,7 @@ class DropdownSearch<T> extends StatefulWidget {
         super(key: key);
 
   @override
-  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines, selectedItemTextStyle, selectedItemTextPadding);
+  DropdownSearchState<T> createState() => DropdownSearchState<T>(maxLines);
 }
 
 class DropdownSearchState<T> extends State<DropdownSearch<T>> {
@@ -440,10 +440,8 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   final ValueNotifier<bool> _isFocused = ValueNotifier(false);
   final _popupStateKey = GlobalKey<SelectionWidgetState<T>>();
   final maxLines;
-  final selectedItemTextStyle;
-  final selectedItemTextPadding;
 
-  DropdownSearchState(this.maxLines, this.selectedItemTextStyle, this.selectedItemTextPadding);
+  DropdownSearchState(this.maxLines);
 
   @override
   void initState() {
@@ -518,9 +516,9 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: selectedItemTextStyle??Theme.of(context).textTheme.subtitle1,
+        style: widget.selectedItemTextStyle??Theme.of(context).textTheme.subtitle1,
           ),
-        padding: selectedItemTextPadding??EdgeInsets.zero,
+        padding: widget.selectedItemTextPadding??EdgeInsets.zero,
       );
     }
 
