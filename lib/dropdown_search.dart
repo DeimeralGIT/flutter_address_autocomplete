@@ -13,6 +13,7 @@ import 'src/properties/popup_safearea_props.dart';
 import 'src/properties/scrollbar_props.dart';
 import 'src/properties/text_field_props.dart';
 import 'src/selection_widget.dart';
+import 'cw_text.dart';
 
 export 'src/properties/popup_safearea_props.dart';
 export 'src/properties/scrollbar_props.dart';
@@ -330,7 +331,6 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle,
     this.selectedItemTextPadding,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
@@ -413,7 +413,6 @@ class DropdownSearch<T> extends StatefulWidget {
     this.focusNode,
     this.positionCallback,
     this.maxLines = 1,
-    this.selectedItemTextStyle,
     this.selectedItemTextPadding,
   })  : assert(!showSelectedItems || T == String || compareFn != null),
         this.searchFieldProps = searchFieldProps ?? TextFieldProps(),
@@ -516,7 +515,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: widget.selectedItemTextStyle??Theme.of(context).textTheme.subtitle1,
+        style: CWTextStyle(CWTextTypes.inputText, context),,
           ),
         padding: widget.selectedItemTextPadding??EdgeInsets.zero,
       );
