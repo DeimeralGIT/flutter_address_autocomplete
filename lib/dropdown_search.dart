@@ -515,7 +515,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         _selectedItemAsString(getSelectedItem),
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(CWTextTypes.inputText, context),
+        style: CWTextStyle(CWTextTypes.inputText, context),
           ),
         padding: widget.selectedItemTextPadding??EdgeInsets.zero,
       );
