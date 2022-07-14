@@ -13,7 +13,7 @@ import 'src/properties/popup_safearea_props.dart';
 import 'src/properties/scrollbar_props.dart';
 import 'src/properties/text_field_props.dart';
 import 'src/selection_widget.dart';
-import 'cw_text.dart';
+import 'package:insurance_app/core/reusable_widgets/cw_text.dart';
 
 export 'src/properties/popup_safearea_props.dart';
 export 'src/properties/scrollbar_props.dart';
