@@ -762,9 +762,11 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         barrierDismissible: widget.popupBarrierDismissible,
         items: [
           CustomPopupMenuItem(
-            child: Container(
-              width: popupButtonObject.size.width,
-              child: _selectDialogInstance(defaultHeight: 224),
+            child: SafeArea(
+              child: Container(
+                width: popupButtonObject.size.width,
+                child: _selectDialogInstance(defaultHeight: 224),
+              ),
             ),
           ),
         ]);
