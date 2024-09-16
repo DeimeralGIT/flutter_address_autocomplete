@@ -1,9 +1,63 @@
+## [2.0.1] - 2021.11.15
+* improve performance
+* add "popupCustomMultiSelectionWidget" option
+
+## [2.0.0]
+* fix bug [284](https://github.com/salim-lachdhaf/searchable_dropdown/issues/284)
+* breaking changes
+    - add "isSelected" option to FavoriteItemsBuilder
+    - change onChange to onChanged in multiSelection mode
+## [1.0.4] - 2021.10.17
+* fix some bugs
+
+## [1.0.3] - 2021.10.02
+* new feature : change searchBox query programmatically using EditTextController
+* fix some bugs
+
+## [1.0.0] - 2021.09.08
+* new feature : multiSelection mode
+* breaking changes :
+        - searchBoxDecoration removed: replaced by searchFieldProps
+        _ autoFocusSearchBox removed : replaced by searchFieldProps
+        _ searchBoxStyle removed : replaced by searchFieldProps
+        _ searchBoxController removed : replaced by searchFieldProps
+
+        - showSelectedItem replaced by showSelectedItems
+
+## [0.6.3] - 2021.06.03
+* fix analyser issues
+
+## [0.6.2] - 2021.06.13
+* prop that passes all props to search field
+* fix issues [169](https://github.com/salim-lachdhaf/searchable_dropdown/issues/169)
+* fix issues [163](https://github.com/salim-lachdhaf/searchable_dropdown/issues/163)
+* new Feature "dropdown BaseStyle" [178](https://github.com/salim-lachdhaf/searchable_dropdown/issues/178)
+* new Feature "popup scrollView"
+* Ignore pointers in itemBuilder & cursor in web
+* Added property to customize DropdownButton Splash Radius
+* added property to set up the splash radius for clear button and for dropdown button in dropdown_search
+* @thanks [Vasiliy](https://github.com/vasilich6107)
+
+## [0.6.1] - 2021.05.02
+* added property to set up the popup safe area
+* fixed `null safety` issues
+
+## [0.6.0] - 2021.03.27
+* fixed `null safety` issues after initial migration
+* migrated example to `null safety`
+* allowed `http` traffic for Android to make async requests work
+
+## [0.5.0] - 2021.03.23
+* Migrating to null-safety @thx [nizarhdt](https://github.com/nizarhdt)
+* add new feature: favorites items @thx [nizarhdt](https://github.com/nizarhdt)
+* fix bugs
+
 ## [0.4.9] - 2021.02.22
 * fix bug filterOnline [#116](https://github.com/salim-lachdhaf/searchable_dropdown/issues/116)
-* Add onBeforeChange CallBack @thinks [Vasiliy](https://github.com/vasilich6107)
-* Add onPopupDismiss CallBack @thinks [Vasiliy](https://github.com/vasilich6107)
-* search delay feature @thinks [Vasiliy](https://github.com/vasilich6107)
-* BottomSheet scrolling behavior improvement @thinks [Vasiliy](https://github.com/vasilich6107)
+* Add onBeforeChange CallBack @thanks [Vasiliy](https://github.com/vasilich6107)
+* Add onPopupDismiss CallBack @thanks [Vasiliy](https://github.com/vasilich6107)
+* search delay feature @thanks [Vasiliy](https://github.com/vasilich6107)
+* BottomSheet scrolling behavior improvement @thanks [Vasiliy](https://github.com/vasilich6107)
 * fix bug update selectedItem
 * added an ability to override the clear and dropdown icon buttons with builder
 * `suffixIcons` adds an ability to switch icon management through the `suffixIcon` of `InputDecoration` 

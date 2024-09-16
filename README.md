@@ -13,7 +13,7 @@
          alt="Build">
   </a>
   <a href="https://pub.dev/packages/dropdown_search"><img src="https://img.shields.io/pub/v/dropdown_search"></a>
-  <a href="https://salim-lachdhaf.github.io">
+  <a href="https://www.buymeacoffee.com/SalimDev">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
   </a>
 </p>
@@ -30,9 +30,10 @@
 
 ## Key Features
 
-* Online and offline items
+* Sync and/or Async items (online, offline, DB, ...)
 * Searchable dropdown
 * Three dropdown mode: Menu/ BottomSheet/ Dialog
+* Single & multi selection
 * Material dropdown
 * Easy customizable UI
 * Handle Light and Dark theme
@@ -63,6 +64,17 @@ DropdownSearch<String>(
     popupItemDisabled: (String s) => s.startsWith('I'),
     onChanged: print,
     selectedItem: "Brazil"),
+    
+    
+DropdownSearch<String>.multiSelection(
+    mode: Mode.MENU,
+    showSelectedItem: true,
+    items: ["Brazil", "Italia (Disabled)", "Tunisia", 'Canada'],
+    label: "Menu mode",
+    hint: "country in menu mode",
+    popupItemDisabled: (String s) => s.startsWith('I'),
+    onChanged: print,
+    selectedItems: ["Brazil"]),
 ```
 
 ## customize showed field (itemAsString)
@@ -144,52 +156,10 @@ DropdownSearch<UserModel>(
 ## Layout customization
 You can customize the layout of the DropdownSearch and its items. [EXAMPLE](https://github.com/salim-lachdhaf/searchable_dropdown/tree/master/example#custom-layout-endpoint-example)
 
-|  Properties |   Description|
-| ------------ | ------------ |
-|`label`|DropDownSearch label|
-|`showSearchBox`|show/hide the search box|
-|`isFilteredOnline`|true if the filter on items is applied onlie (via API)|
-|`showClearButton`| show/hide clear selected item|
-|`items`| offline items list|
-|`selectedItem`| selected item|
-|`onFind`|function that returns item from API|
-|`onChanged`|called when a new item is selected|
-|`dropdownBuilder`|to customize list of items UI|
-|`popupItemBuilder`|to customize selected item|
-|`validator`|function to apply the validation formula|
-|`searchBoxDecoration`|decoration for the search box|
-|`popupBackgroundColor`|background color for the dialog/menu/bottomSheet|
-|`popupTitle`|Custom widget for the popup title|
-|`itemAsString`|customize the fields the be shown|
-|`filterFn`|custom filter function|
-|`enabled`|enable/disable dropdownSearch|
-|`mode`| MENU / DIALOG/ BOTTOM_SHEET|
-|`maxHeight`| the max height for dialog/bottomSheet/Menu|
-|`dialogMaxWidth`| the max width for the dialog|
-|`showSelectedItem`| manage selected item visibility (if true, the selected item will be highlighted)|
-|`compareFn`| Function(T item, T selectedItem), custom comparing function|
-|`dropdownSearchDecoration`| DropdownSearch input decoration|
-|`emptyBuilder`| custom layout for empty results|
-|`loadingBuilder`| custom layout for loading items|
-|`errorBuilder`| custom layout for error|
-|`autoFocusSearchBox`| the search box will be focused if true|
-|`popupShape`| custom shape for the popup|
-|`autoValidateMode`|handle auto validation mode|
-|`onSaved`|An optional method to call with the final value when the form is saved via|
-|`validator`|An optional method that validates an input. Returns an error string to display if the input is invalid, or null otherwise.|
-|`clearButton`|customize clear button widget|
-|`dropDownButton`|customize dropdown button widget|
-|`dropdownBuilderSupportsNullItem`|If true, the dropdownBuilder will continue the uses of material behavior. This will be useful if you want to handle a custom UI only if the item !=null|
-|`popupItemDisabled`|defines if an item of the popup is enabled or not, if the item is disabled, it cannot be clicked|
-|`popupBarrierColor`|set a custom color for the popup barrier|
-|`searchBoxController`|search box controller|
-|`clearButtonBuilder`|custom clear button builder|
-|`dropdownButtonBuilder`|custom dropdown button builder|
-|`onBeforeChange`|callback executed before applying value change|
-|`searchDelay`|delay before searching|
+Full documentation [here](https://pub.dev/documentation/dropdown_search/latest/dropdown_search/DropdownSearch-class.html)
 
 # Attention
-To use a template as an item type, and you don't want to use a custom fonction **itemAsString** and **compareFn** you **need** to implement **toString**, **equals** and **hashcode**, as shown below:
+To use a template as an item type, and you don't want to use a custom function **itemAsString** and **compareFn** you **need** to implement **toString**, **equals** and **hashcode**, as shown below:
 
 
 ```dart
